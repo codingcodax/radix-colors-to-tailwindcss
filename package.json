@@ -48,6 +48,7 @@
   "dependencies": {
     "@clack/core": "^0.3.5",
     "@clack/prompts": "^0.8.2",
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "consola": "^3.2.3"
   }
 }
