@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-import { Command } from "commander";
-import packageJson from "../package.json";
-import { init } from "~/commands/init";
+import { Command } from 'commander';
+
+import { init } from '~/commands/init';
+import packageJson from '../package.json';
 
 const main = () => {
   const program = new Command();
@@ -11,8 +12,8 @@ const main = () => {
     .description(packageJson.description)
     .version(
       packageJson.version,
-      "-v, --version",
-      "Display the version number",
+      '-v, --version',
+      'Display the version number',
     );
 
   program.addCommand(init);
