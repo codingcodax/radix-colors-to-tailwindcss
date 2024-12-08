@@ -1,4 +1,23 @@
 #!/usr/bin/env node
+import { Command } from "commander";
+import packageJson from "../package.json";
+import { init } from "~/commands/init";
 
-const username = "codingcodax";
-console.log(`Hello, ${username}!`);
+const main = () => {
+  const program = new Command();
+
+  program
+    .name(packageJson.name)
+    .description(packageJson.description)
+    .version(
+      packageJson.version,
+      "-v, --version",
+      "Display the version number",
+    );
+
+  program.addCommand(init);
+
+  program.parse();
+};
+
+main();
