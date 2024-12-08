@@ -24,7 +24,7 @@
     "prebuild": "rm -rf dist",
     "build": "tsup",
     "dev": "pnpx tsx src/index.ts",
-    "start": "node dis/index.mjs",
+    "start": "node dist/index.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
