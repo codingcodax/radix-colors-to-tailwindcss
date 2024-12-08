@@ -1,12 +1,26 @@
 {
   "name": "cli-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Template for a CLI using TypeScript",
+  "keywords": [
+    "cli",
+    "typescript"
+  ],
+  "homepage": "https://github.com/codingcodax/cli-template",
+  "bugs": {
+    "url": "https://github.com/codingcodax/cli-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codingcodax/cli-template.git"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Alexis Guzman",
+    "url": "https://github.com/codingcodax"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
