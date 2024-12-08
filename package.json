@@ -17,24 +17,36 @@
   "license": "Apache-2.0",
   "author": {
     "name": "Alexis Guzman",
-    "url": "https://github.com/codingcodax"
+    "url": "https://www.codingcodax.com"
   },
+  "type": "module",
+  "exports": "./dist/index.mjs",
   "main": "index.js",
+  "bin": "./dist/index.mjs",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsup",
     "build:silent": "tsup --silent",
     "dev": "pnpx tsx src/index.ts",
     "dev:node": "pnpm build:silent && pnpm start",
-    "start": "node dist/index.mjs",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write src",
     "format:fix": "prettier --write src",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
     "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
-    "pub:release": "pnpm build && pnpm publish --access public"
+    "pub:release": "pnpm build && pnpm publish --access public",
+    "start": "node dist/index.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/core": "^0.3.5",
+    "@clack/prompts": "^0.8.2",
+    "commander": "^12.1.0",
+    "consola": "^3.2.3"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
@@ -44,11 +56,5 @@
     "prettier": "^3.4.2",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
-  },
-  "dependencies": {
-    "@clack/core": "^0.3.5",
-    "@clack/prompts": "^0.8.2",
-    "commander": "^12.1.0",
-    "consola": "^3.2.3"
   }
 }
