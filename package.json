@@ -23,7 +23,9 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsup",
+    "build:silent": "tsup --silent",
     "dev": "pnpx tsx src/index.ts",
+    "dev:node": "pnpm build:silent && pnpm start",
     "start": "node dist/index.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
