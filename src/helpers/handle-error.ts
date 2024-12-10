@@ -1,16 +1,19 @@
-import { consola } from 'consola/basic';
+import color from 'picocolors';
 
 export const handleError = (error: unknown) => {
   if (typeof error === 'string') {
-    consola.error(error);
+    console.error(color.bgRed(color.bold('Error')), error);
     process.exit(1);
   }
 
   if (error instanceof Error) {
-    consola.error(error.message);
+    console.error(color.bgRed(color.bold('Error')), error.message);
     process.exit(1);
   }
 
-  consola.error('Something went wrong. Please try again.');
+  console.error(
+    color.bgRed(color.bold('Error')),
+    'Something went wrong. Please try again.',
+  );
   process.exit(1);
 };
