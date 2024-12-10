@@ -12,25 +12,28 @@ export const init = new Command()
   .option('-n, --name <name>', 'Name of the project')
   .action(async (opts) => {
     try {
-      let { name } = initOptionsSchema.parse(opts);
+      const options = initOptionsSchema.parse(opts);
 
       p.intro(highlight(' CLI Template: init '));
 
-      if (!name) {
-        const prompt = await p.group(
-          {
-            name: () => p.text({ message: 'What is your project name?' }),
-          },
-          {
-            onCancel: () => {
-              p.cancel('Operation cancelled');
-              process.exit(1);
-            },
-          },
-        );
+      const prompts = {
+        ...(!options.name && {
+          name: () =>
+            p.text({
+              message: 'What is the name of your project?',
+              placeholder: 'my-project',
+            }),
+        }),
+      };
 
-        name = prompt.name;
-      }
+      const prompt = await p.group(prompts, {
+        onCancel: () => {
+          p.cancel('Operation cancelled');
+          process.exit(1);
+        },
+      });
+
+      const name = options.name ?? prompt.name ?? 'my-project';
 
       p.outro(highlight(` Your project is named ${emphasize(name)} `));
     } catch (error) {
