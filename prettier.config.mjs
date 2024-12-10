@@ -15,20 +15,6 @@ const config = {
     "^[./]",
   ],
   importOrderParserPlugins: ["typescript", "decorators-legacy"],
-  overrides: [
-    {
-      files: "*.json.hbs",
-      options: {
-        parser: "json",
-      },
-    },
-    {
-      files: "*.js.hbs",
-      options: {
-        parser: "babel",
-      },
-    },
-  ],
 };
 
 export default config;
