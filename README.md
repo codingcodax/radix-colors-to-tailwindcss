@@ -3,7 +3,7 @@
 Template for a CLI using TypeScript.
 This CLI has only one command: `init`. It prompts the user for a project name and then prints a message with the name.
 
-## Tools
+## Stack
 
 - [Clack](https://github.com/bombshell-dev/clack) - CLI Prompts
 - [Commander](https://github.com/tj/commander.js) - CLI Framework
