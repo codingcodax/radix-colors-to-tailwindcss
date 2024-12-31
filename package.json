@@ -45,6 +45,7 @@
   "dependencies": {
     "@clack/core": "^0.3.5",
     "@clack/prompts": "^0.8.2",
+    "@radix-ui/colors": "^3.0.0",
     "commander": "^12.1.0",
     "picocolors": "^1.1.1",
     "zod": "^3.23.8"
