@@ -1,14 +1,17 @@
 {
-  "name": "cli-template",
+  "name": "radix-colors-to-tailwindcss",
   "version": "1.0.0",
-  "description": "Template for a CLI using TypeScript",
+  "description": "Convert Radix Colors to Tailwind CSS format (hsl)",
   "keywords": [
-    "cli",
-    "typescript"
+    "radix",
+    "radix-colors",
+    "tailwind",
+    "tailwindcss",
+    "colors"
   ],
-  "homepage": "https://github.com/codingcodax/cli-template",
+  "homepage": "https://github.com/codingcodax/radix-colors-to-tailwindcss",
   "bugs": {
-    "url": "https://github.com/codingcodax/cli-template/issues"
+    "url": "https://github.com/codingcodax/radix-colors-to-tailwindcss/issues"
   },
   "repository": {
     "type": "git",
