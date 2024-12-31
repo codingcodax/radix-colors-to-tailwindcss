@@ -1,24 +1,36 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
+import * as RadixColors from '@radix-ui/colors';
 
-import { init } from '~/commands/init';
-import packageJson from '../package.json';
+import { EXCLUDE_PATTERNS } from '~/config/constants';
+import { HexToHSL } from '~/helpers/hex-to-hsl';
+import { HSLToString } from '~/helpers/hsl-to-string';
+import { ColorSet, ColorValues } from '~/types';
 
-const main = () => {
-  const program = new Command();
+const shouldIncludeColor = (key: string): boolean =>
+  !EXCLUDE_PATTERNS.some((pattern) => key.includes(pattern));
 
-  program
-    .name(packageJson.name)
-    .description(packageJson.description)
-    .version(
-      packageJson.version,
-      '-v, --version',
-      'Display the version number',
-    );
+const convertValues = (values: ColorValues): ColorValues => {
+  const newValues = { ...values };
 
-  program.addCommand(init);
+  Object.entries(newValues).forEach(([key, value]) => {
+    if (typeof value === 'string') {
+      const hsl = HexToHSL(value);
+      if (hsl) {
+        newValues[key] = HSLToString(hsl);
+      }
+    }
+  });
 
-  program.parse();
+  return newValues;
 };
 
-main();
+const hslColors = Object.entries(RadixColors)
+  .filter(([key]) => shouldIncludeColor(key))
+  .map(
+    ([name, values]): ColorSet => ({
+      name,
+      values: convertValues(values as ColorValues),
+    }),
+  );
+
+console.log(hslColors);
